@@ -9,7 +9,7 @@ const cors = require("cors");
 const fs = require("fs");
 
 const PORT = process.env.PORT || 5000; // Use environment variable or default to 3000
-const hostname = "localhost";
+const HOSTNAME = process.env.HOSTNAME || "127.0.0.1"; // Use environment variable or default to 'localhost'
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
@@ -206,6 +206,6 @@ app.get("/b2curlrequest", (req, res) => {
     .catch(console.log);
 });
 
-server.listen(PORT, hostname, () => {
-  console.log(`Server running at http://${hostname}:${PORT}/`);
+server.listen(PORT, HOSTNAME, () => {
+  console.log(`Server running at http://${HOSTNAME}:${PORT}/`);
 });
