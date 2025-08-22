@@ -8,7 +8,7 @@ const apiRouter = require("./api");
 const cors = require("cors");
 const fs = require("fs");
 
-const port = 5000;
+const PORT = process.env.PORT || 5000; // Use environment variable or default to 3000
 const hostname = "localhost";
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -207,5 +207,5 @@ app.get("/b2curlrequest", (req, res) => {
 });
 
 server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+  console.log(`Server running at http://${hostname}:${PORT}/`);
 });
